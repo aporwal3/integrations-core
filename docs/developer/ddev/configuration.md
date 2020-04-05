@@ -3,7 +3,7 @@
 -----
 
 All configuration can be managed entirely by the `ddev config` command group. To locate the
-[TOML](https://github.com/toml-lang/toml) config file, run:
+[TOML][toml-github] config file, run:
 
 ```
 ddev config find
@@ -11,13 +11,16 @@ ddev config find
 
 ## Repository
 
-All CLI commands are aware of the current repository context, defined by the option `repo`. This option should be
-a reference to another key which is set to the path of a supported repository. For example, this configuration:
+All CLI commands are aware of the current repository context, defined by the option `repo`. This option should be a
+reference to a key in `repos` which is set to the path of a supported repository. For example, this configuration:
 
 ```toml
+repo = "core"
+
+[repos]
 core = "/path/to/integrations-core"
 extras = "/path/to/integrations-extras"
-repo = "core"
+agent = "/path/to/datadog-agent"
 ```
 
 would make it so running e.g. `ddev test nginx` will look for an integration named `nginx` in `/path/to/integrations-core`
@@ -39,9 +42,9 @@ Run `ddev config show` to see if your GitHub user and token is set.
 If not:
 
 1. Run `ddev config set github.user <YOUR_GITHUB_USERNAME>`
-1. Create a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) with `public_repo` permissions
+1. Create a [personal access token][github-personal-access-token] with `public_repo` permissions
 1. Run `ddev config set github.token` then paste the token
-1. [Enable single sign-on](https://help.github.com/en/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on) for the token
+1. [Enable single sign-on][github-saml-single-sign-on] for the token
 
 ## Trello
 
