@@ -21,3 +21,4 @@ services:
 
 
 # curl --anyauth --user 'admin:passw0rd' 'http://localhost:8002/manage/v2/servers?view=status&format=json' | jq
+# curl --anyauth --user 'admin:passw0rd' 'http://localhost:8002/manage/v2/forests?view=metrics&format=json' | jq
